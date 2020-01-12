@@ -16,11 +16,18 @@ public class MailSendController {
 	private EmailServiceImpl emailServiceImpl;
 
 	@RequestMapping(value = "mail/send/simple", method = RequestMethod.POST)
-	public BaseResponse sendMail(@RequestParam String receiverEmail, @RequestParam String mailSubject,
-			@RequestParam String mailBody) {
+	public BaseResponse sendMail(@RequestParam String receiverEmail, @RequestParam String mailSubject,@RequestParam String mailBody) {
 
 		emailServiceImpl.sendSimpleMessage(receiverEmail, mailSubject, mailBody);
 		return new BaseResponse("Mail Send Success");
+	}
+	
+	
+	@RequestMapping(value = "mail/send/with/attachment", method = RequestMethod.POST)
+	public BaseResponse sendMailWithAttachment(@RequestParam String receiverEmail, @RequestParam String mailSubject,@RequestParam String mailBody,@RequestParam(required = false) String filePath) {
+
+		emailServiceImpl.sendMessageWithAttachment(receiverEmail, mailSubject, mailBody, "/home/nasir/license.pdf");
+		return new BaseResponse("Mail Send Success with attachment");
 	}
 
 }

@@ -23,6 +23,8 @@ public class EmailServiceImpl implements EmailService {
 	public void sendSimpleMessage(String to, String subject, String text) {
 		try {
 			SimpleMailMessage message = new SimpleMailMessage();
+			
+			message.setFrom("somir.netizen@gmail.com");
 			message.setTo(to);
 			message.setSubject(subject);
 			message.setText(text);
@@ -44,21 +46,22 @@ public class EmailServiceImpl implements EmailService {
 
 	@Override
 	public void sendMessageWithAttachment(String to, String subject, String text, String pathToAttachment) {
-//		try {
-//			MimeMessage message = emailSender.createMimeMessage();
-//			MimeMessageHelper helper = new MimeMessageHelper(message, true);
-//
-//			helper.setTo(to);
-//			helper.setSubject(subject);
-//			helper.setText(text);
-//
-//			FileSystemResource file = new FileSystemResource(new File(pathToAttachment));
-//			helper.addAttachment("Invoice", file);
-//
-//			emailSender.send(message);
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			MimeMessage message = emailSender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+			message.setFrom("somir.netizen@gmail.com");
+			helper.setTo(to);
+			helper.setSubject(subject);
+			helper.setText(text);
+
+			FileSystemResource file = new FileSystemResource(new File(pathToAttachment));
+			helper.addAttachment("License", file);
+
+			emailSender.send(message);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
 
 	}
 
