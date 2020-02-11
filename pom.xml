@@ -13,7 +13,8 @@
 	<artifactId>Mail-Service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Mail-Service</name>
-	<description>Mail-Service Project is use for sending different type of mail </description>
+	<description>Mail-Service Project is use for sending different type of
+		mail </description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -62,6 +63,16 @@
 			<artifactId>spring-security-oauth2</artifactId> </dependency> -->
 
 		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 		</dependency>
@@ -87,6 +98,28 @@
 			<artifactId>unirest-java</artifactId>
 			<version>1.4.9</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>4.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.amazon.opendistroforelasticsearch.client/opendistro-sql-jdbc -->
+		<dependency>
+			<groupId>com.amazon.opendistroforelasticsearch.client</groupId>
+			<artifactId>opendistro-sql-jdbc</artifactId>
+			<version>1.0.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
